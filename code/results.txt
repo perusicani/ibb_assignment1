@@ -1,0 +1,351 @@
+RUN 1:
+    Dataset used: 
+    0: 0554.png
+    1: 0501.png
+    2: 0504.png
+    3: 0509.png
+    4: 0507.png
+    5: 0560.png
+    6: 0563.png
+    7: 0562.png
+    8: 0565.png
+    9: 0570.png
+    10: 0519.png
+    11: 0520.png
+    12: 0573.png
+    13: 0574.png
+    14: 0575.png
+    15: 0527.png
+    16: 0577.png
+    17: 0578.png
+    18: 0581.png
+    19: 0535.png
+    20: 0533.png
+    21: 0538.png
+    22: 0539.png
+    23: 0537.png
+    24: 0595.png
+    25: 0543.png
+    26: 0544.png
+    27: 0599.png
+    28: 0547.png
+    29: 0597.png
+    30: 0652.png
+    31: 0602.png
+    32: 0604.png
+    33: 0606.png
+    34: 0607.png
+    35: 0658.png
+    36: 0615.png
+    37: 0614.png
+    38: 0664.png
+    39: 0616.png
+    40: 0668.png
+    41: 0666.png
+    42: 0674.png
+    43: 0623.png
+    44: 0671.png
+    45: 0680.png
+    46: 0628.png
+    47: 0677.png
+    48: 0685.png
+    49: 0633.png
+    50: 0631.png
+    51: 0637.png
+    52: 0638.png
+    53: 0689.png
+    54: 0645.png
+    55: 0694.png
+    56: 0642.png
+    57: 0650.png
+    58: 0697.png
+    59: 0700.png
+    60: 1954.png
+    61: 1902.png
+    62: 1951.png
+    63: 1908.png
+    64: 1956.png
+    65: 1909.png
+    66: 1963.png
+    67: 1962.png
+    68: 1915.png
+    69: 1920.png
+    70: 1967.png
+    71: 1969.png
+    72: 1971.png
+    73: 1972.png
+    74: 1973.png
+    75: 1928.png
+    76: 1979.png
+    77: 1977.png
+    78: 1935.png
+    79: 1932.png
+    80: 1981.png
+    81: 1986.png
+    82: 1939.png
+    83: 1987.png
+    84: 1991.png
+    85: 1995.png
+    86: 1942.png
+    87: 1999.png
+    88: 1947.png
+    89: 1949.png
+    90: 2005.png
+    91: 2052.png
+    92: 2004.png
+    93: 2058.png
+    94: 2006.png
+    95: 2010.png
+    96: 2013.png
+    97: 2015.png
+    98: 2063.png
+    99: 2069.png
+    100: 2070.png
+    101: 2066.png
+    102: 2025.png
+    103: 2072.png
+    104: 2074.png
+    105: 2079.png
+    106: 2028.png
+    107: 2076.png
+    108: 2085.png
+    109: 2031.png
+    110: 2081.png
+    111: 2088.png
+    112: 2090.png
+    113: 2040.png
+    114: 2045.png
+    115: 2041.png
+    116: 2043.png
+    117: 2048.png
+    118: 2098.png
+    119: 2099.png
+    120: 2152.png
+    121: 2101.png
+    122: 2104.png
+    123: 2160.png
+    124: 2106.png
+    125: 2109.png
+    126: 2113.png
+    127: 2164.png
+    128: 2162.png
+    129: 2119.png
+    130: 2168.png
+    131: 2117.png
+    132: 2122.png
+    133: 2125.png
+    134: 2123.png
+    135: 2179.png
+    136: 2177.png
+    137: 2126.png
+    138: 2181.png
+    139: 2182.png
+    140: 2131.png
+    141: 2140.png
+    142: 2189.png
+    143: 2137.png
+    144: 2191.png
+    145: 2142.png
+    146: 2194.png
+    147: 2149.png
+    148: 2148.png
+    149: 2200.png
+
+    own-LBP. Start: 2023-11-19 20:57:28.726192
+        own-LBP: Results:
+        Comparisons made: 20
+        Correct identifications: 16
+        Incorrect identifications: 4
+    own-LBP. End: 2023-11-19 21:09:13.669189
+
+    lib-LBP. Start: 2023-11-19 21:09:13.669199
+        lib-LBP: Results:
+        Comparisons made: 20
+        Correct identifications: 20
+        Incorrect identifications: 0
+    lib-LBP. End: 2023-11-19 21:09:19.144834
+
+    P2P. Start: 2023-11-19 21:09:19.144844
+        P2P: Results:
+        Comparisons made: 20
+        Correct identifications: 20
+        Incorrect identifications: 0
+    P2P. End: 2023-11-19 21:09:20.062069
+
+    As seen from the results output into the console (and as expected),
+    The "own" implementation is the most inaccurate, with 4 incorrect identifications.
+    It can also be seen how the "own" implementation is the most inefficient time-wise (which is expected as well, considering its simplicity).
+
+RUN 2:
+    Dataset used: 
+    0: 0552.png
+    1: 0554.png
+    2: 0502.png
+    3: 0509.png
+    4: 0510.png
+    5: 0507.png
+    6: 0562.png
+    7: 0514.png
+    8: 0565.png
+    9: 0568.png
+    10: 0518.png
+    11: 0569.png
+    12: 0575.png
+    13: 0574.png
+    14: 0523.png
+    15: 0528.png
+    16: 0530.png
+    17: 0579.png
+    18: 0581.png
+    19: 0535.png
+    20: 0584.png
+    21: 0586.png
+    22: 0536.png
+    23: 0539.png
+    24: 0541.png
+    25: 0544.png
+    26: 0542.png
+    27: 0550.png
+    28: 0547.png
+    29: 0600.png
+    30: 0602.png
+    31: 0604.png
+    32: 0601.png
+    33: 0610.png
+    34: 0659.png
+    35: 0608.png
+    36: 0661.png
+    37: 0611.png
+    38: 0615.png
+    39: 0618.png
+    40: 0617.png
+    41: 0619.png
+    42: 0623.png
+    43: 0675.png
+    44: 0624.png
+    45: 0626.png
+    46: 0630.png
+    47: 0679.png
+    48: 0685.png
+    49: 0681.png
+    50: 0632.png
+    51: 0639.png
+    52: 0687.png
+    53: 0686.png
+    54: 0693.png
+    55: 0643.png
+    56: 0645.png
+    57: 0650.png
+    58: 0696.png
+    59: 0648.png
+    60: 1954.png
+    61: 1955.png
+    62: 1905.png
+    63: 1957.png
+    64: 1906.png
+    65: 1958.png
+    66: 1964.png
+    67: 1963.png
+    68: 1962.png
+    69: 1968.png
+    70: 1970.png
+    71: 1920.png
+    72: 1922.png
+    73: 1923.png
+    74: 1973.png
+    75: 1928.png
+    76: 1927.png
+    77: 1980.png
+    78: 1985.png
+    79: 1933.png
+    80: 1982.png
+    81: 1937.png
+    82: 1986.png
+    83: 1989.png
+    84: 1993.png
+    85: 1942.png
+    86: 1994.png
+    87: 1997.png
+    88: 1947.png
+    89: 2000.png
+    90: 2051.png
+    91: 2055.png
+    92: 2053.png
+    93: 2058.png
+    94: 2056.png
+    95: 2009.png
+    96: 2015.png
+    97: 2064.png
+    98: 2014.png
+    99: 2067.png
+    100: 2070.png
+    101: 2066.png
+    102: 2074.png
+    103: 2023.png
+    104: 2025.png
+    105: 2078.png
+    106: 2028.png
+    107: 2077.png
+    108: 2033.png
+    109: 2032.png
+    110: 2085.png
+    111: 2039.png
+    112: 2086.png
+    113: 2037.png
+    114: 2043.png
+    115: 2042.png
+    116: 2091.png
+    117: 2098.png
+    118: 2100.png
+    119: 2096.png
+    120: 2153.png
+    121: 2154.png
+    122: 2105.png
+    123: 2157.png
+    124: 2109.png
+    125: 2156.png
+    126: 2164.png
+    127: 2163.png
+    128: 2161.png
+    129: 2119.png
+    130: 2166.png
+    131: 2118.png
+    132: 2171.png
+    133: 2123.png
+    134: 2124.png
+    135: 2127.png
+    136: 2126.png
+    137: 2130.png
+    138: 2133.png
+    139: 2134.png
+    140: 2184.png
+    141: 2137.png
+    142: 2138.png
+    143: 2189.png
+    144: 2192.png
+    145: 2195.png
+    146: 2194.png
+    147: 2150.png
+    148: 2149.png
+    149: 2148.png
+
+    own-LBP. Start: 2023-11-19 21:16:07.231333
+        own-LBP: Results:
+        Comparisons made: 20
+        Correct identifications: 15
+        Incorrect identifications: 5
+    own-LBP. End: 2023-11-19 21:30:00.780542
+
+    lib-LBP. Start: 2023-11-19 21:30:00.780559
+        lib-LBP: Results:
+        Comparisons made: 20
+        Correct identifications: 20
+        Incorrect identifications: 0
+    lib-LBP. End: 2023-11-19 21:30:07.271256
+
+    P2P. Start: 2023-11-19 21:30:07.271267
+        P2P: Results:
+        Comparisons made: 20
+        Correct identifications: 20
+        Incorrect identifications: 0
+    P2P. End: 2023-11-19 21:30:08.364218

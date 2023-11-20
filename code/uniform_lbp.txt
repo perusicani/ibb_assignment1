@@ -1,0 +1,13 @@
+The uniform_lbp function is an enhancement to the regular LBP algorithm. 
+
+It introduces the concept of "uniform" patterns and classifies the LBP patterns into two categories: uniform and non-uniform. 
+This is achieved by counting the number of bitwise transitions (0 to 1 or 1 to 0) in the binary representation of the LBP pattern. 
+
+If a pattern has at most 2 transitions, it is considered uniform; otherwise, it is marked as non-uniform.
+
+Further explanations:
+    Uniform Patterns:
+        The code introduces the concept of uniform patterns by counting the number of transitions in the binary representation of the LBP pattern. Uniform patterns have at most 2 transitions (01 or 10).
+    
+    Pattern Classification:
+        If the calculated LBP pattern is uniform (transitions <= 2), it is assigned to the lbp_img array. Otherwise, the pixel is marked with a special value (255) to indicate a non-uniform pattern.

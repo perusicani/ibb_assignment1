@@ -1,0 +1,17 @@
+Reading the Lines:
+    The code reads the lines from the specified text file (txt_file) and stores them in the lines list.
+
+Identity Dictionary:
+    The code then creates a dictionary (identity_dict) to store identities as keys and corresponding image names as values. It iterates through each line, extracts the image name and identity, and adds the image name to the list associated with the identity in the dictionary.
+
+Splitting into Training and Test Sets:
+    For each identity in the dictionary, the code shuffles the associated image names to randomize the order. It then uses train_test_split from scikit-learn to split the image names into training and test sets.
+
+Ensuring Representation in Both Sets:
+    The code ensures that each identity is represented in both the training and test sets by shuffling the image names and then splitting them.
+
+Combining Sets:
+    The final training and test sets (train_set and test_set) are constructed by extending the lists with the respective split image names for each identity.
+
+Return:
+    The function returns the final training and test sets.

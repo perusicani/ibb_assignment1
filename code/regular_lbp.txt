@@ -1,0 +1,7 @@
+This implementation follows a basic approach to LBP computation with a circular sampling pattern. It calculates the binary patterns for each pixel in the image, excluding a border of radius R. The resulting lbp_img array represents the LBP values for each pixel in the original image.
+
+LBP Computation:
+    The nested loops iterate over the image pixels excluding a border of radius R. 
+    For each pixel at (i, j), the code calculates the LBP value based on the pixel values in a circular neighborhood of radius R and with P sampling points.
+    The neighborhood sampling is done using polar coordinates, where k iterates over the sampling points, and (x, y) is calculated using the polar coordinates. The pixel values are compared, and the binary pattern is constructed accordingly.
+    The constructed pattern is assigned to the corresponding location in the lbp_img array.

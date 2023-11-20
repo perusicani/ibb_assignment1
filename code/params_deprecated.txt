@@ -1,0 +1,311 @@
+### DEPRECATED
+
+# Test ran separately to check best params on entire dataset
+# scaleFactor: 1.25
+# minNeigh: 6
+
+# Later implemented and used optimization.py
+
+## Code
+`
+scaleFactors = [1.05, 1.1, 1.15, 1.2, 1.25, 1.3]
+minNeighs = [3, 4, 5, 6]
+
+for scaleFactor in scaleFactors:
+	print(f"Checking scaleFactor: {scaleFactor}")
+	for minNeigh in minNeighs:
+		print(f"Checking minNeigh: {minNeigh}")
+		ious = 0 # all ious for detected images
+		iou_over_p5 = 0 # over .5
+		iou_under_p5 = 0 # under .5
+		not_detected = 0
+		for image in os.listdir(img_dir):
+			# check if the image ends with png
+			if (image.endswith(".png")):
+				base, ext = os.path.splitext(image)
+				# issues with macOS and path and VSCode
+				# print(os.path.join(root, 'ears/', image))
+				# print(root + '/ears/' + image)
+				# Read image
+				img = cv2.imread(f"{root}/{img_dir}/{image}")
+				im_h, im_w, im_c = img.shape
+				# Grayscale it
+				gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+				
+				## HERE ADJUST PARAMS FOR BEST RESULTS -according to IOU calculated
+				left_ears = left_ear_cascade.detectMultiScale(gray, scaleFactor, minNeigh)
+				right_ears = right_ear_cascade.detectMultiScale(gray, scaleFactor, minNeigh)
+
+				gt = get_ground_truth(f"{root}/{img_dir}/{base}.txt")
+				
+				iou = 0
+				if(len(left_ears) != 0): 
+					iou = process_detected_ear(left_ears, gt, im_w, im_h, iou_under_p5, iou_over_p5, ious)
+				if(len(right_ears) != 0): 
+					iou = process_detected_ear(right_ears, gt, im_w, im_h, iou_under_p5, iou_over_p5, ious)
+			
+				if (len(left_ears) == 0 and len(right_ears) == 0):
+					not_detected +=1
+				else:
+					if iou<.5:
+						iou_under_p5 +=1
+					else:
+						iou_over_p5 +=1
+					ious += iou
+					
+		print(f"scaleFactor: {scaleFactor}")
+		print(f"minNeigh: {minNeigh}")
+		print(f"IOUs: {ious}")
+		print(f"IOUs avg: {ious/(iou_over_p5+iou_under_p5)}")
+		print(f"IOUs over .5: {iou_over_p5}")
+		print(f"IOUs under .5: {iou_under_p5}")
+		print(f"Not detected: {not_detected}")
+		print(f"\n")
+`
+##
+
+
+Checking scaleFactor: 1.05
+Checking minNeigh: 3
+scaleFactor: 1.05
+minNeigh: 3
+IOUs: 124.11420993415315
+IOUs avg: 0.46484722821780206
+IOUs over .5: 170
+IOUs under .5: 97
+Not detected: 233
+
+
+Checking minNeigh: 4
+scaleFactor: 1.05
+minNeigh: 4
+IOUs: 123.80116731871273
+IOUs avg: 0.5136977897042022
+IOUs over .5: 171
+IOUs under .5: 70
+Not detected: 259
+
+
+Checking minNeigh: 5
+scaleFactor: 1.05
+minNeigh: 5
+IOUs: 120.40427027035469
+IOUs avg: 0.5448157025807905
+IOUs over .5: 167
+IOUs under .5: 54
+Not detected: 279
+
+
+Checking minNeigh: 6
+scaleFactor: 1.05
+minNeigh: 6
+IOUs: 117.8830123229292
+IOUs avg: 0.5864826483727821
+IOUs over .5: 164
+IOUs under .5: 37
+Not detected: 299
+
+
+Checking scaleFactor: 1.1
+Checking minNeigh: 3
+scaleFactor: 1.1
+minNeigh: 3
+IOUs: 119.88003932034376
+IOUs avg: 0.5735887048820275
+IOUs over .5: 167
+IOUs under .5: 42
+Not detected: 291
+
+
+Checking minNeigh: 4
+scaleFactor: 1.1
+minNeigh: 4
+IOUs: 103.48632103965292
+IOUs avg: 0.5913504059408738
+IOUs over .5: 143
+IOUs under .5: 32
+Not detected: 325
+
+
+Checking minNeigh: 5
+scaleFactor: 1.1
+minNeigh: 5
+IOUs: 94.87134381664679
+IOUs avg: 0.6120731859138502
+IOUs over .5: 131
+IOUs under .5: 24
+Not detected: 345
+
+
+Checking minNeigh: 6
+scaleFactor: 1.1
+minNeigh: 6
+IOUs: 89.03442469968597
+IOUs avg: 0.6270029908428589
+IOUs over .5: 123
+IOUs under .5: 19
+Not detected: 358
+
+
+Checking scaleFactor: 1.15
+Checking minNeigh: 3
+scaleFactor: 1.15
+minNeigh: 3
+IOUs: 102.50517475752562
+IOUs avg: 0.5891101997558944
+IOUs over .5: 139
+IOUs under .5: 35
+Not detected: 326
+
+
+Checking minNeigh: 4
+scaleFactor: 1.15
+minNeigh: 4
+IOUs: 91.35430616162408
+IOUs avg: 0.6049954050438681
+IOUs over .5: 124
+IOUs under .5: 27
+Not detected: 349
+
+
+Checking minNeigh: 5
+scaleFactor: 1.15
+minNeigh: 5
+IOUs: 80.47647539982081
+IOUs avg: 0.6190498107678524
+IOUs over .5: 110
+IOUs under .5: 20
+Not detected: 370
+
+
+Checking minNeigh: 6
+scaleFactor: 1.15
+minNeigh: 6
+IOUs: 69.36975437883885
+IOUs avg: 0.6193728069539183
+IOUs over .5: 96
+IOUs under .5: 16
+Not detected: 388
+
+
+Checking scaleFactor: 1.2
+Checking minNeigh: 3
+scaleFactor: 1.2
+minNeigh: 3
+IOUs: 85.91126128998498
+IOUs avg: 0.6411288155969028
+IOUs over .5: 117
+IOUs under .5: 17
+Not detected: 366
+
+
+Checking minNeigh: 4
+scaleFactor: 1.2
+minNeigh: 4
+IOUs: 76.38759643367666
+IOUs avg: 0.6313024498650964
+IOUs over .5: 104
+IOUs under .5: 17
+Not detected: 379
+
+
+Checking minNeigh: 5
+scaleFactor: 1.2
+minNeigh: 5
+IOUs: 65.4547628466301
+IOUs avg: 0.6293727196791357
+IOUs over .5: 90
+IOUs under .5: 14
+Not detected: 396
+
+
+Checking minNeigh: 6
+scaleFactor: 1.2
+minNeigh: 6
+IOUs: 58.96025898808227
+IOUs avg: 0.6408723803052421
+IOUs over .5: 81
+IOUs under .5: 11
+Not detected: 408
+
+
+Checking scaleFactor: 1.25
+Checking minNeigh: 3
+scaleFactor: 1.25
+minNeigh: 3
+IOUs: 73.412849499925
+IOUs avg: 0.6439723640344298
+IOUs over .5: 102
+IOUs under .5: 12
+Not detected: 386
+
+
+Checking minNeigh: 4
+scaleFactor: 1.25
+minNeigh: 4
+IOUs: 63.24176520726888
+IOUs avg: 0.6587683875757174
+IOUs over .5: 88
+IOUs under .5: 8
+Not detected: 404
+
+
+Checking minNeigh: 5
+scaleFactor: 1.25
+minNeigh: 5
+IOUs: 52.10503630347585
+IOUs avg: 0.6513129537934481
+IOUs over .5: 74
+IOUs under .5: 6
+Not detected: 420
+
+
+Checking minNeigh: 6
+scaleFactor: 1.25
+minNeigh: 6
+IOUs: 41.483008295997976
+IOUs avg: 0.6481720046249684
+IOUs over .5: 59
+IOUs under .5: 5
+Not detected: 436
+
+
+Checking scaleFactor: 1.3
+Checking minNeigh: 3
+scaleFactor: 1.3
+minNeigh: 3
+IOUs: 64.26037084589287
+IOUs avg: 0.6238870955911928
+IOUs over .5: 85
+IOUs under .5: 18
+Not detected: 397
+
+
+Checking minNeigh: 4
+scaleFactor: 1.3
+minNeigh: 4
+IOUs: 48.789257432221
+IOUs avg: 0.633626719898974
+IOUs over .5: 65
+IOUs under .5: 12
+Not detected: 423
+
+
+Checking minNeigh: 5
+scaleFactor: 1.3
+minNeigh: 5
+IOUs: 34.22792234787238
+IOUs avg: 0.6223258608704069
+IOUs over .5: 45
+IOUs under .5: 10
+Not detected: 445
+
+
+Checking minNeigh: 6
+scaleFactor: 1.3
+minNeigh: 6
+IOUs: 24.538027549774178
+IOUs avg: 0.6134506887443545
+IOUs over .5: 32
+IOUs under .5: 8
+Not detected: 460
